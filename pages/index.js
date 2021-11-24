@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import Router from "next/router";
 import { Row, Col, Button, Nav } from "react-bootstrap";
+import Sidebar from "../components/sidebars";
 
 export default function Home({ data }) {
   let active = data.page;
@@ -11,8 +11,8 @@ export default function Home({ data }) {
     items.push(
       <a
         href="#"
-        className="text-decoration-none p-3 mx-1 rounded-circle"
-        style={{ color: "#666666", fontSize: "11px" }}
+        className="text-decoration-none d-flex align-items-center justify-content-center mx-1 rounded-circle"
+        style={{ color: active === i ? "#FFF" : "#666666", backgroundColor: active === i ? "#7DB7B4" : "", fontSize: "11px", height: "21px", width: "21px" }}
         onClick={(e) => {
           e.preventDefault();
           Router.push(`/?page=${i}`);
@@ -34,95 +34,7 @@ export default function Home({ data }) {
       <main>
         <div className="row">
           <div className="col-2 py-5 px-4" style={{ borderRadius: "40px", boxShadow: "10px 10px 24px rgba(166, 180, 200, 0.15)" }}>
-            <Nav defaultActiveKey="/" className="flex-column">
-              <div className="text-center mb-3">
-                <Image src="/kinky_ostendorf.svg" height="114" width="164" />
-              </div>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/overview.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      OVERVIEW
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/business.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      BUSINESS
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/inbox.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      INBOX
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/collaborators.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      COLLABORATORS
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1" style={{ background: "rgba(125, 183, 180, 0.15)", borderRadius: "10px" }}>
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/performance.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      PERFORMANCE
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/billing.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      BILLING
-                    </div>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/overview">
-                <a className="text-decoration-none">
-                  <div className="row d-flex align-items-center justify-content-center p-1">
-                    <div className="col-3 bg-white d-flex align-items-center justify-content-center p-0" style={{ borderRadius: "10px", height: "50px" }}>
-                      <Image src="/support.svg" width="27" height="20" />
-                    </div>
-                    <div className="col-9 fw-bolder" style={{ fontSize: "11px", color: "#666666" }}>
-                      SUPPORT
-                    </div>
-                  </div>
-                </a>
-              </Link>
-            </Nav>
+            <Sidebar />
           </div>
 
           <div className="col-10">
@@ -144,7 +56,7 @@ export default function Home({ data }) {
                     e.preventDefault();
                   }}
                 >
-                  <div className="input-group input-group-sm">
+                  <div className="input-group input-group-sm" style={{ width: "305px" }}>
                     <span className="input-group-text border-0" id="inputGroup-sizing-sm" style={{ backgroundColor: "rgba(102, 102, 102, 0.04)", borderRadius: "20px 0 0 20px" }}>
                       <Image src="/search.svg" height="13" width="13" />
                     </span>
@@ -176,19 +88,21 @@ export default function Home({ data }) {
             </div>
 
             <footer className="d-flex align-items-center justify-content-center">
-              <button
-                href="#"
+              <Button
+                variant="link"
+                className="shadow-none mt-1"
                 onClick={(e) => {
                   e.preventDefault();
                   Router.push(`/?page=${active - 1}`);
                 }}
                 disabled={active == 1}
               >
-                <Image src="/arrow_back.svg" width="21px" height="20px" />
-              </button>
+                <Image src="/arrow_back.png" width="21px" height="16px" />
+              </Button>
               {items}
-              <button
-                href="#"
+              <Button
+                variant="link"
+                className="shadow-none mt-1"
                 onClick={(e) => {
                   e.preventDefault();
                   Router.push(`/?page=${active + 1}`);
@@ -196,7 +110,7 @@ export default function Home({ data }) {
                 disabled={active == data.total_pages}
               >
                 <Image src="/arrow_next.svg" width="21px" height="16px" />
-              </button>
+              </Button>
             </footer>
           </div>
         </div>
