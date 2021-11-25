@@ -2,8 +2,47 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #7db7b4;
+  border-radius: 20px;
+}
+
+.text-gray {
+  color: #666666;
+}
+
+.sidebar {
+  border-radius: 40px;
+  box-shadow: 10px 10px 24px rgba(166, 180, 200, 0.15);
+}
+
+.sidebar-item :hover {
+  background: rgba(125, 183, 180, 0.15);
+  border-radius: 10px;
+}
+
+.pagination {
+  font-size: 11px;
+  height: 21px;
+  width: 21px;
+  cursor: pointer;
+}
+
+.pagination :hover {
+  background: #7db7b4;
+}
+
+.modal-dialog {
+  border: 0;
+  border-radius: 20px;
 }
 
 a {
@@ -12,5 +51,14 @@ a {
 }
 
 * {
+  font-family: "Gotham";
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham/GothamMedium.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
