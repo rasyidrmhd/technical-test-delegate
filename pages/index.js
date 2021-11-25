@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Router from "next/router";
 import { Row, Col, Button, Modal, Form, InputGroup, FormControl } from "react-bootstrap";
-import Sidebar from "../components/sidebars";
+import Sidebar from "../components/sidebar";
 
 export default function Home({ users }) {
   const [detailUser, setDetailUser] = useState({});
@@ -125,7 +125,7 @@ export default function Home({ users }) {
             </div>
           </Col>
 
-          <Modal show={show} onHide={handleClose} dialogClassName="text-gray" contentClassName="border-0" bsPrefix="modal" style={{ borderRadius: "40px" }} size="sm" centered>
+          <Modal show={show} onHide={handleClose} dialogClassName="text-gray" contentClassName="border-0" size="sm" centered>
             <Modal.Body className="text-center">
               <Image src={detailUser.avatar} width="150px" height="150px" alt="user_avatar" className="rounded-circle" />
               <div className="mt-3">
