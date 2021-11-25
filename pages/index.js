@@ -16,6 +16,7 @@ export default function Home({ users }) {
   for (let i = 1; i <= users.total_pages; i++) {
     items.push(
       <span
+        key={i}
         className="text-decoration-none d-flex align-items-center justify-content-center mx-1 rounded-circle pagination"
         style={{ color: active === i ? "#FFF" : "#666666", backgroundColor: active === i ? "#7DB7B4" : "" }}
         onClick={(e) => {
